@@ -371,7 +371,77 @@
             font-weight: bold;
         }
 
-        /* Responsive */
+        /* Image Upload Section */
+        .image-upload-section {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 3rem;
+            border-radius: 25px;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .image-upload-box {
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px dashed #e2e8f0;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-upload-box:hover {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .image-upload-box .icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .image-upload-box h4 {
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .image-upload-box p {
+            color: #718096;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero {
+                padding: 3rem 1rem;
+            }
+            
+            .feature-card, .order-info, .colors-section {
+                padding: 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 flex-direction: column;
@@ -384,26 +454,106 @@
                 padding: 2rem;
                 transform: translateY(-100%);
                 transition: transform 0.3s ease;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             }
 
             .nav-links.active {
                 transform: translateY(0);
             }
 
+            .logo {
+                font-size: 1.5rem;
+            }
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
             }
 
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem;
             }
 
             .features {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
             }
 
             .colors-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .image-upload-box {
+                padding: 1.5rem;
+                min-height: 150px;
+            }
+
+            .page-header h2 {
+                font-size: 2rem;
+            }
+
+            .order-info, .colors-section, .image-upload-section {
+                padding: 2rem 1.5rem;
+            }
+
+            /* Table responsive */
+            table {
+                font-size: 0.85rem;
+            }
+            
+            table th, table td {
+                padding: 0.5rem !important;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .colors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .color-swatch {
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            table {
+                font-size: 0.75rem;
+            }
+            
+            .image-upload-box .icon {
+                font-size: 2rem;
+            }
+            
+            .image-upload-box h4 {
+                font-size: 1rem;
+            }
+            
+            .image-upload-box p {
+                font-size: 0.8rem;
             }
         }
 
@@ -604,6 +754,13 @@
             </div>
 
             <div class="order-info">
+                <a href="https://forms.gle/G7EbQpdQWnSAuK7L8" 
+                   target="_blank" 
+                   class="cta-button" 
+                   style="font-size: 1.2rem; padding: 1.2rem 3rem; margin-bottom: 2rem; display: inline-block;">
+                   📝 Place Your Order Now
+                </a>
+                
                 <h3>🌟 How It Works</h3>
                 <p><strong>Step 1:</strong> Choose your colors and fill out our order form<br>
                 <strong>Step 2:</strong> We'll confirm your order and provide measuring instructions<br>
@@ -612,11 +769,36 @@
 
                 <div style="margin: 2rem 0;">
                     <h3>💰 Pricing</h3>
-                    <p><strong>Standard Rope Halter:</strong> R350.00<br>
-                    <strong>Matching Lead Rope:</strong> R200.00<br>
-                    <strong>Custom Sizing:</strong> No additional charge<br>
-                    <em>Shipping at a flat rate of R100.00</em></p>
+                    <p><strong>Black Rope Halter with colourful finishings:</strong> R250.00<br>
+                    <em>Shipping at a flat rate of R100.00 via PUDO/Postnet</em></p>
                 </div>
+            </div>
+
+            <div class="image-upload-section">
+                <h3>📸 Showcase Your Rainbow Rope Halters</h3>
+                <p>Share photos of your beautiful horses wearing our custom rope halters! These images may be featured in our Hall of Fame.</p>
+                
+                <div class="image-grid">
+                    <div class="image-upload-box">
+                        <div class="icon">📷</div>
+                        <h4>Front View</h4>
+                        <p>Show off the beautiful colors and craftsmanship of your rope halter</p>
+                    </div>
+                    <div class="image-upload-box">
+                        <div class="icon">🎨</div>
+                        <h4>Side Profile</h4>
+                        <p>Capture your horse's profile wearing their custom halter</p>
+                    </div>
+                    <div class="image-upload-box">
+                        <div class="icon">✨</div>
+                        <h4>Detail Shot</h4>
+                        <p>Close-up of the halter showing the quality and color details</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 1rem; color: #718096; font-style: italic;">
+                    Upload your photos through the order form or email them to us directly!
+                </p>
             </div>
 
             <div class="colors-section">
@@ -854,9 +1036,9 @@
         const horsesData = [
             {
                 id: 1,
-                name: "Notting Hill",
+                name: "Coming Soon!",
                 image: "images/horses/noah.png",
-                description: "2 Year Old KWPN Gelding by Negro"
+                description: "Be the first to showcase your horse in our beautiful Rainbow Rope Halter"
             }
         ];
 
