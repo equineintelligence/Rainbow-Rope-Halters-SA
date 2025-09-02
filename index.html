@@ -409,10 +409,13 @@
             background: rgba(102, 126, 234, 0.1);
         }
 
-        .image-upload-box .icon {
-            font-size: 3rem;
-            color: #667eea;
+        .image-upload-box .example-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
             margin-bottom: 1rem;
+            border: 2px solid #e2e8f0;
         }
 
         .image-upload-box h4 {
@@ -707,31 +710,11 @@
 
             <div class="faq-item">
                 <div class="faq-question">
-                    What measurements do you need for my horse?
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>We need the nose circumference, head circumference behind the ears, and the distance from behind the ears to the nose. Detailed measuring instructions will be provided with your order confirmation. Don't worry - we're here to help if you need guidance!</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
                     What sizes do you offer?
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>We offer standard sizes (Mini, Pony, Cob, Full, Warmblood, Draft) as well as completely custom sizing based on your horse's measurements. Every horse is unique, and we ensure the perfect fit!</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    Can you make matching lead ropes?
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Absolutely! We offer matching lead ropes in the same colors as your halter. Lead ropes come in 8ft, 10ft, and 12ft lengths with your choice of hardware.</p>
+                    <p>We offer standard sizes (Mini/foal, Pony, Cob, Full, X-Full,) </p>
                 </div>
             </div>
 
@@ -763,14 +746,14 @@
                 
                 <h3>🌟 How It Works</h3>
                 <p><strong>Step 1:</strong> Choose your colors and fill out our order form<br>
-                <strong>Step 2:</strong> We'll confirm your order and provide measuring instructions<br>
+                <strong>Step 2:</strong> Do EFT to provided banking details and send POP<br>
                 <strong>Step 3:</strong> Our craftsperson begins creating your custom halter<br>
-                <strong>Step 4:</strong> Your finished halter ships to your door!</p>
+                <strong>Step 4:</strong> Your finished halter ships to you!</p>
 
                 <div style="margin: 2rem 0;">
                     <h3>💰 Pricing</h3>
-                    <p><strong>Black Rope Halter with colourful finishings:</strong> R250.00<br>
-                    <em>Shipping at a flat rate of R100.00 via PUDO/Postnet</em></p>
+                    <p><strong>Black Base Rope Halter with coloured finishings:</strong> R250.00<br>
+                    <em>Shipping at a flat rate of R100.00 via PUDO or Postnet</em></p>
                 </div>
             </div>
 
@@ -780,17 +763,23 @@
                 
                 <div class="image-grid">
                     <div class="image-upload-box">
-                        <div class="icon">📷</div>
+                        <img src="images/examples/front-view-example.png" alt="Front View Example" class="example-image" 
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; font-size: 3rem; color: #667eea; margin-bottom: 1rem;">📷</div>
                         <h4>Front View</h4>
                         <p>Show off the beautiful colors and craftsmanship of your rope halter</p>
                     </div>
                     <div class="image-upload-box">
-                        <div class="icon">🎨</div>
+                        <img src="images/examples/side-profile-example.png" alt="Side Profile Example" class="example-image"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; font-size: 3rem; color: #667eea; margin-bottom: 1rem;">🎨</div>
                         <h4>Side Profile</h4>
                         <p>Capture your horse's profile wearing their custom halter</p>
                     </div>
                     <div class="image-upload-box">
-                        <div class="icon">✨</div>
+                        <img src="images/examples/detail-shot-example.png" alt="Detail Shot Example" class="example-image"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; font-size: 3rem; color: #667eea; margin-bottom: 1rem;">✨</div>
                         <h4>Detail Shot</h4>
                         <p>Close-up of the halter showing the quality and color details</p>
                     </div>
@@ -821,7 +810,7 @@
                         </thead>
                         <tbody>
                             <tr style="border-bottom: 1px solid #e2e8f0;">
-                                <td style="padding: 1rem; font-weight: bold; background: rgba(102, 126, 234, 0.1);">Mini</td>
+                                <td style="padding: 1rem; font-weight: bold; background: rgba(102, 126, 234, 0.1);">Mini/Foal</td>
                                 <td style="padding: 1rem; text-align: center;">37cm</td>
                                 <td style="padding: 1rem; text-align: center;">13cm</td>
                                 <td style="padding: 1rem; text-align: center;">12cm</td>
@@ -871,7 +860,7 @@
                                 <td style="padding: 1rem; text-align: center;">15cm</td>
                             </tr>
                             <tr>
-                                <td style="padding: 1rem; font-weight: bold; background: rgba(102, 126, 234, 0.1);">Draft</td>
+                                <td style="padding: 1rem; font-weight: bold; background: rgba(102, 126, 234, 0.1);">X-Full</td>
                                 <td style="padding: 1rem; text-align: center;">77cm</td>
                                 <td style="padding: 1rem; text-align: center;">27cm</td>
                                 <td style="padding: 1rem; text-align: center;">25cm</td>
@@ -1036,9 +1025,9 @@
         const horsesData = [
             {
                 id: 1,
-                name: "Coming Soon!",
+                name: "Notting Hill",
                 image: "images/horses/noah.png",
-                description: "Be the first to showcase your horse in our beautiful Rainbow Rope Halter"
+                description: "2 Year Old KWPN Gelding by Negro"
             }
         ];
 
