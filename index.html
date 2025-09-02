@@ -411,11 +411,74 @@
 
         .image-upload-box .example-image {
             width: 100%;
-            height: 120px;
+            height: 250px;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 15px;
             margin-bottom: 1rem;
             border: 2px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .image-upload-box .example-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            border-color: #667eea;
+        }
+
+        /* Modal for full-size images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 15px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2001;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
         }
 
         .image-upload-box h4 {
@@ -710,6 +773,16 @@
 
             <div class="faq-item">
                 <div class="faq-question">
+                    What measurements do you need for my horse?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We need the nose circumference, head circumference behind the ears, and the distance from behind the ears to the nose. Detailed measuring instructions will be provided with your order confirmation. Don't worry - we're here to help if you need guidance!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
                     What sizes do you offer?
                     <span class="faq-toggle">+</span>
                 </div>
@@ -758,8 +831,7 @@
             </div>
 
             <div class="image-upload-section">
-                <h3>📸 Showcase Your Rainbow Rope Halters</h3>
-                <p>Share photos of your beautiful horses wearing our custom rope halters! These images may be featured in our Hall of Fame.</p>
+                <h3>📸 Rainbow Rope Halters</h3>
                 
                 <div class="image-grid">
                     <div class="image-upload-box">
@@ -784,11 +856,7 @@
                         <p>Close-up of the halter showing the quality and color details</p>
                     </div>
                 </div>
-                
-                <p style="margin-top: 1rem; color: #718096; font-style: italic;">
-                    Upload your photos through the order form or email them to us directly!
-                </p>
-            </div>
+    
 
             <div class="colors-section">
                 <h3>📏 Size Chart</h3>
@@ -965,6 +1033,14 @@
         </div>
     </main>
 
+    <!-- Modal for full-size images -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="">
+        </div>
+    </div>
+
     <script>
         // Navigation functionality
         const navLinks = document.querySelectorAll('.nav-link');
@@ -1025,9 +1101,9 @@
         const horsesData = [
             {
                 id: 1,
-                name: "Notting Hill",
-                image: "images/horses/noah.png",
-                description: "2 Year Old KWPN Gelding by Negro"
+                name: "Coming Soon!",
+                image: "images/halters/placeholder.jpg",
+                description: "Be the first to showcase your horse in our beautiful Rainbow Rope Halter"
             }
         ];
 
@@ -1071,6 +1147,44 @@
                         });
                     }
                 });
+            });
+        });
+
+        // Modal functionality for images
+        function openModal(imageSrc, imageAlt) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.style.display = 'block';
+            modalImg.src = imageSrc;
+            modalImg.alt = imageAlt;
+            
+            // Prevent body scrolling when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            
+            // Restore body scrolling
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the image
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('imageModal');
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
             });
         });
     </script>
